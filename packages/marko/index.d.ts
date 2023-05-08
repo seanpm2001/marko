@@ -104,10 +104,8 @@ declare global {
       ? Params
       : never;
 
-    export class Component<
-      Input = unknown,
-      State = unknown
-    > implements Emitter
+    export class Component<Input = unknown, State = unknown>
+      implements Emitter
     {
       /** A unique id for this instance. */
       public readonly id: string;
@@ -218,10 +216,7 @@ declare global {
     }
 
     /** The top level api for a Marko Template. */
-    export abstract class Template<
-      Input = unknown,
-      Return = unknown
-    > {
+    export abstract class Template<Input = unknown, Return = unknown> {
       /** Creates a Marko compatible output stream. */
       createOut(): Out;
 
@@ -248,7 +243,10 @@ declare global {
       /** Asynchronously render the template in buffered mode. */
       abstract render(
         input: Marko.TemplateInput<Input>,
-        cb?: (err: Error | null, result: Marko.RenderResult<Marko.Component>) => void
+        cb?: (
+          err: Error | null,
+          result: Marko.RenderResult<Marko.Component>
+        ) => void
       ): Marko.Out<Marko.Component>;
 
       /** Synchronously render the template. */
