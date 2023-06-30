@@ -10,7 +10,7 @@ export default function throwAggregateError(errors) {
 
   let err;
   const message = `${color.red("AggregationError:")}\n${errors
-    .map(err => err.message)
+    .map((err) => err.message)
     .join("\n\n")
     .replace(/^(?!\s*$)/gm, "\t")}\n`;
 

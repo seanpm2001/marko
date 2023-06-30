@@ -4,7 +4,7 @@ import withPreviousLocation from "../../../util/with-previous-location";
 export function exit(path) {
   const { node } = path;
   const { body } = node;
-  const name = node.attributes.find(attr => attr.name === "name");
+  const name = node.attributes.find((attr) => attr.name === "name");
 
   path.replaceWith(
     withPreviousLocation(

@@ -5,11 +5,11 @@ import getComponentFiles from "../../util/get-component-files";
 export default function (path) {
   const {
     node,
-    hub: { file }
+    hub: { file },
   } = path;
   const {
     rawValue: code,
-    name: { start, end }
+    name: { start, end },
   } = node;
   const meta = file.metadata.marko;
 
@@ -46,7 +46,7 @@ export default function (path) {
   }
 
   const constructorProp = parsed.body.body.find(
-    prop => t.isClassMethod(prop) && prop.kind === "constructor"
+    (prop) => t.isClassMethod(prop) && prop.kind === "constructor"
   );
   if (constructorProp) {
     throw file.buildCodeFrameError(

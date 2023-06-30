@@ -5,28 +5,28 @@ import stripAnsi from "strip-ansi";
 import { compileFileSync } from "../src";
 
 fs.readdirSync(path.join(__dirname, "../../"))
-  .map(dir => /^translator-(.*)|/.exec(dir)[1])
+  .map((dir) => /^translator-(.*)|/.exec(dir)[1])
   .filter(Boolean)
-  .forEach(translator => {
+  .forEach((translator) => {
     autotest(path.normalize(`../../translator-${translator}/test/fixtures`), {
       cjs: runTest({ output: "html", modules: "cjs" }),
       html: runTest({ output: "html" }),
       htmlProduction: runTest({
         output: "html",
-        optimize: true
+        optimize: true,
       }),
       vdom: runTest({ output: "dom" }),
       vdomProduction: runTest({
         output: "dom",
-        optimize: true
+        optimize: true,
       }),
       generated: runTest({ output: "migrate" }),
       hydrate: runTest({
         output: "hydrate",
         resolveVirtualDependency(from, { virtualPath }) {
           return virtualPath;
-        }
-      })
+        },
+      }),
     });
 
     function runTest(config) {
@@ -44,9 +44,9 @@ fs.readdirSync(path.join(__dirname, "../../"))
           babelConfig: {
             ...config.babelConfig,
             babelrc: false,
-            configFile: false
+            configFile: false,
           },
-          writeVersionComment: false
+          writeVersionComment: false,
         };
 
         const snapshotsDir = resolve("snapshots");
@@ -64,7 +64,7 @@ fs.readdirSync(path.join(__dirname, "../../"))
             try {
               snapshot(stripCwd(stripAnsi(err.message)), {
                 name: `${name}-error`,
-                ext: ".txt"
+                ext: ".txt",
               });
               return;
             } catch {
@@ -74,7 +74,7 @@ fs.readdirSync(path.join(__dirname, "../../"))
 
           snapshot(output, {
             name,
-            ext: mode === "generated" ? ".marko" : ".js"
+            ext: mode === "generated" ? ".marko" : ".js",
           });
         });
       };

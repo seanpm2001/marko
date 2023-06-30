@@ -14,7 +14,7 @@ export {
   loadFileForTag,
   loadFileForImport,
   getTemplateId,
-  resolveTagImport
+  resolveTagImport,
 } from "./tags";
 export {
   assertAllowedAttributes,
@@ -22,7 +22,7 @@ export {
   assertNoAttributes,
   assertNoParams,
   assertNoVar,
-  assertNoAttributeTags
+  assertNoAttributeTags,
 } from "./assert";
 export { normalizeTemplateString } from "./template-string";
 
@@ -34,7 +34,7 @@ export {
   parseParams,
   parseArgs,
   parseVar,
-  parseTemplateLiteral
+  parseTemplateLiteral,
 } from "./parse";
 
 export { resolveRelativePath, importDefault, importNamed } from "./imports";
@@ -46,7 +46,7 @@ export {
   diagnosticError,
   diagnosticDeprecate,
   diagnosticWarn,
-  diagnosticSuggest
+  diagnosticSuggest,
 } from "./diagnostics";
 
 export function defineTag(tag) {

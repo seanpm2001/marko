@@ -83,9 +83,9 @@ function loadBabelConfig(filename, { babelConfig, ...markoConfig }) {
         allowDeclareFields: true,
         optimizeConstEnums: true,
         onlyRemoveTypeImports: true,
-        disallowAmbiguousJSXLike: false
-      }
-    ]
+        disallowAmbiguousJSXLike: false,
+      },
+    ],
   ];
   const baseBabelConfig = {
     filenameRelative: filename
@@ -103,7 +103,7 @@ function loadBabelConfig(filename, { babelConfig, ...markoConfig }) {
     plugins:
       babelConfig && babelConfig.plugins
         ? requiredPlugins.concat(babelConfig.plugins)
-        : requiredPlugins
+        : requiredPlugins,
   };
 
   if (isTranslated) {
@@ -122,7 +122,7 @@ function buildResult(src, filename, errorRecovery, babelResult) {
     ast,
     map,
     code,
-    metadata: { marko: meta }
+    metadata: { marko: meta },
   } = babelResult;
 
   if (!errorRecovery) {

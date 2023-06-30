@@ -18,7 +18,7 @@ function register({ extensions = require.extensions, ...options } = {}) {
             meta: true,
             hot: process.env.BROWSER_REFRESH_URL !== undefined,
             // eslint-disable-next-line no-constant-condition
-            sourceMaps: isDev ? "inline" : false
+            sourceMaps: isDev ? "inline" : false,
           },
           options,
           requiredOptions

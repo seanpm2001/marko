@@ -11,7 +11,7 @@ const TRANSPARENT_TAGS = new Set([
   "if",
   "else",
   "else-if",
-  "_no-update"
+  "_no-update",
 ]);
 
 const CWD = process.cwd();
@@ -41,14 +41,14 @@ export function isDynamicTag(path) {
 
 export function isAttributeTag(path) {
   const {
-    node: { name }
+    node: { name },
   } = path;
   return t.isStringLiteral(name) && name.value[0] === "@";
 }
 
 export function isTransparentTag(path) {
   const {
-    node: { name }
+    node: { name },
   } = path;
   return t.isStringLiteral(name) && TRANSPARENT_TAGS.has(name.value);
 }
@@ -73,7 +73,7 @@ export function getMacroIdentifier(path) {
 export function getTagDef(path) {
   const {
     node,
-    hub: { file }
+    hub: { file },
   } = path;
 
   if (!node.tagDef) {
@@ -132,7 +132,7 @@ export function findParentTag(path) {
 }
 
 export function findAttributeTags(path, attributeTags = []) {
-  path.get("body.body").forEach(child => {
+  path.get("body.body").forEach((child) => {
     if (isAttributeTag(child)) {
       attributeTags.push(child);
     } else if (isTransparentTag(child)) {
@@ -145,7 +145,7 @@ export function findAttributeTags(path, attributeTags = []) {
 
 export function getArgOrSequence(path) {
   const {
-    node: { arguments: args }
+    node: { arguments: args },
   } = path;
   const len = args && args.length;
 
@@ -211,7 +211,7 @@ export function getTemplateId(optimize, request) {
 
 export function resolveTagImport(path, request) {
   const {
-    hub: { file }
+    hub: { file },
   } = path;
   if (request[0] === "<") {
     const tagName = request.slice(1, -1);
@@ -243,12 +243,12 @@ function createNewFileOpts(opts, filename) {
     filenameRelative,
     parserOpts: {
       ...opts.parserOpts,
-      sourceFileName
+      sourceFileName,
     },
     generatorOpts: {
       ...opts.generatorOpts,
       filename,
-      sourceFileName
-    }
+      sourceFileName,
+    },
   };
 }

@@ -45,7 +45,7 @@ function merge(target, source) {
 class TaglibLookup {
   constructor() {
     this.merged = {
-      attributeGroups: {}
+      attributeGroups: {},
     };
     this.taglibsById = {};
 
@@ -105,7 +105,7 @@ class TaglibLookup {
       tags: taglib.tags,
       attributes: taglib.attributes,
       patternAttributes: taglib.patternAttributes,
-      attributeGroups: taglib.attributeGroups || {}
+      attributeGroups: taglib.attributeGroups || {},
     });
 
     this._mergeNestedTags(taglib);
@@ -192,13 +192,13 @@ class TaglibLookup {
   getAttribute(element, attr) {
     if (typeof element === "string") {
       element = {
-        tagName: element
+        tagName: element,
       };
     }
 
     if (typeof attr === "string") {
       attr = {
-        name: attr
+        name: attr,
       };
     }
 
