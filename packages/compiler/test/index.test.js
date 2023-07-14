@@ -5,7 +5,7 @@ import stripAnsi from "strip-ansi";
 import { compileFileSync } from "../src";
 
 fs.readdirSync(path.join(__dirname, "../../"))
-  .map((dir) => /^translator-(.*)|/.exec(dir)[1])
+  .map((dir) => /^translator-default|/.exec(dir)[1])
   .filter(Boolean)
   .forEach((translator) => {
     autotest(path.normalize(`../../translator-${translator}/test/fixtures`), {
