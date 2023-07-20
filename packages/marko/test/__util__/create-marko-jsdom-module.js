@@ -51,6 +51,7 @@ function compileMarkoModule(module, filename) {
       output: "vdom",
       browser: true,
       meta: true,
+      module: "cjs",
     }),
     filename
   );
